@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WATCH IT مع سوداني</title>
+<meta name="description" content="Get a WATCH IT voucher with Sudani. Pay from your Sudani balance.">
+<link rel="canonical" href="https://watchit.sudani.sd/">
+<meta property="og:title" content="WATCH IT × Sudani">
+<meta property="og:description" content="Get a WATCH IT voucher with Sudani. Pay from your Sudani balance.">
+<meta property="og:url" content="https://watchit.sudani.sd/">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --blue: #000000;
+  --blue-dark: #2A2A2A;
+  --yellow: #DCA523;
+  --ink: #1A1A1A;
+  --muted: #555A66;
+  --line: #E3E5EA;
+  --field: #8A8F99;
+  --bg: #F2F3F7;
+  --error: #B42318;
+  --dot: #6B6B6B;
+  --surface: #FFFFFF;
+  --soft: #F2F3F7;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #F2F2F7; --muted: #B8BCC8; --line: #2C2C44; --field: #7A7F8C;
+    --bg: #0C0C1C; --surface: #17172B; --soft: #222238; --error: #FF8A80;
+    color-scheme: dark; --link: #DCA523;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #F2F2F7; --muted: #B8BCC8; --line: #2C2C44; --field: #7A7F8C;
+  --bg: #0C0C1C; --surface: #17172B; --soft: #222238; --error: #FF8A80;
+  color-scheme: dark; --link: #DCA523;
+}
+html { background: var(--blue); }
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, system-ui, sans-serif;
+}
+[hidden] { display: none !important; }
+a { color: var(--link, var(--blue)); }
+a:hover { color: var(--blue-dark); }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.on-dark :focus-visible { outline-color: var(--yellow); }
+.wrap { max-width: 560px; margin: 0 auto; padding: 0 16px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Header */
+.topbar { background: var(--blue); }
+.topbar .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
+.brands { display: flex; align-items: center; gap: 14px; }
+.brands img { display: block; width: auto; }
+.brands .sudani { height: 44px; }
+.brands .watchit { height: 20px; }
+.brands .divider { width: 1px; height: 28px; background: var(--dot); }
+.lang-btn {
+  min-height: 44px; padding: 0 14px; border: 1px solid #FFFFFF; border-radius: 999px;
+  background: transparent; color: #FFFFFF; font: inherit; font-size: 15px;
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+}
+
+/* Hero band */
+.hero { background: var(--blue); color: #FFFFFF; padding: 8px 0 80px; }
+.hero .inner { max-width: 528px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.hero .text { padding: 0 20px; display: flex; flex-direction: column; gap: 16px; }
+.hero h1 { margin: 0; font-size: 28px; line-height: 1.3; font-weight: 700; }
+.hero .sub { margin: 0; font-size: 16px; line-height: 1.6; color: #D6D6D6; }
+.section-title { margin: 0; padding: 0 20px; font-size: 17px; font-weight: 600; }
+.benefits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.benefits li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.5; }
+.benefits svg { flex: none; margin-top: 2px; }
+
+/* Carousel */
+.carousel { display: flex; flex-direction: column; gap: 8px; }
+.viewport { border-radius: 20px; overflow: hidden; background: #000000; touch-action: pan-y; }
+.track { display: flex; transition: transform 500ms ease; }
+.slide { flex: 0 0 100%; aspect-ratio: 16 / 9; background: #000000; }
+.slide img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+.controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.round-btn {
+  flex: none; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #FFFFFF;
+  background: transparent; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.mid { display: flex; align-items: center; gap: 8px; }
+.dots { display: flex; align-items: center; gap: 6px; }
+.dots span { display: block; width: 6px; height: 6px; border-radius: 999px; background: var(--dot); transition: width 200ms ease; }
+.dots span.on { width: 16px; background: var(--yellow); }
+.play-btn { width: 44px; height: 44px; border: 0; padding: 0; background: transparent; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+[dir="rtl"] .flip { transform: scaleX(-1); }
+
+/* Cards */
+.stack { display: flex; flex-direction: column; gap: 20px; padding-bottom: 24px; }
+.stack.overlap { margin-top: -56px; }
+.stack.plain { padding-top: 20px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.card h1 { margin: 0; font-size: 26px; line-height: 1.3; font-weight: 700; }
+.muted { color: var(--muted); }
+.lead { margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted); }
+.lead bdi { color: var(--ink); font-weight: 600; }
+.price-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.price-row .label { font-size: 15px; color: var(--muted); }
+.price-row .price { font-size: 26px; font-weight: 700; }
+.note { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-size: 15px; font-weight: 600; }
+.phone { display: flex; align-items: stretch; min-height: 52px; border: 1px solid var(--field); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.phone.invalid, .otp.invalid { border-color: var(--error); }
+.phone .cc { display: flex; align-items: center; padding: 0 14px; background: var(--soft); border-right: 1px solid var(--line); font-size: 16px; font-weight: 500; }
+.phone input { flex: 1; min-width: 0; border: 0; padding: 0 14px; background: var(--surface); color: var(--ink); font: inherit; font-size: 18px; letter-spacing: 0.02em; }
+.phone input:focus-visible { outline: none; }
+.phone:focus-within { outline: 3px solid var(--blue); outline-offset: 2px; }
+.otp { min-height: 56px; border: 1px solid var(--field); border-radius: 12px; padding: 0 12px; background: var(--surface); color: var(--ink); font: inherit; font-size: 28px; letter-spacing: 0.5em; text-align: center; }
+.error { margin: 0; font-size: 14px; color: var(--error); }
+.help { margin: 0; font-size: 14px; color: var(--muted); }
+.summary { background: var(--soft); border-radius: 12px; padding: 14px 16px; font-size: 15px; line-height: 1.5; }
+.btn {
+  min-height: 52px; border: 0; border-radius: 12px; background: var(--blue); color: #FFFFFF;
+  font: inherit; font-size: 17px; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 0 16px;
+}
+.btn:hover { background: var(--blue-dark); color: #FFFFFF; }
+a.btn, a.btn:hover { color: #FFFFFF; }
+.btn[disabled] { opacity: 0.6; cursor: progress; }
+.link-btn { align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: none; color: var(--link, var(--blue)); font: inherit; font-size: 15px; font-weight: 500; cursor: pointer; }
+.link-btn.center { align-self: center; padding: 0 8px; }
+.badge { width: 64px; height: 64px; border-radius: 999px; display: flex; align-items: center; justify-content: center; }
+.badge.ok { background: var(--blue); }
+.badge.bad { border: 2px solid var(--error); }
+.linkbox { display: flex; align-items: center; gap: 8px; border: 1px solid var(--field); border-radius: 12px; padding: 6px 6px 6px 14px; }
+.linkbox span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; }
+.copy-btn { flex: none; min-height: 44px; padding: 0 14px; border: 1px solid var(--field); border-radius: 10px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.steps li { display: flex; align-items: center; gap: 12px; font-size: 15px; line-height: 1.5; }
+.steps .n { flex: none; width: 32px; height: 32px; border-radius: 999px; background: var(--yellow); color: #000000; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.how { padding: 0 4px; }
+.how h2, .next h2 { margin: 0 0 12px; font-size: 18px; font-weight: 600; }
+.next { border-top: 1px solid var(--line); padding-top: 16px; }
+
+footer { padding-bottom: 32px; font-size: 14px; color: var(--muted); }
+footer p { margin: 0; line-height: 1.5; }
+footer nav { display: flex; flex-wrap: wrap; gap: 0 20px; }
+footer a { color: var(--muted) !important; padding: 12px 0; display: inline-block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .track, .dots span { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar on-dark">
+  <div class="wrap">
+    <div class="brands">
+      <img class="sudani" src="assets/logo-sudani.png" alt="Sudani" data-i18n-alt="altSudani">
+      <span class="divider" aria-hidden="true"></span>
+      <img class="watchit" src="assets/logo-watchit.svg" alt="WATCH IT">
+    </div>
+    <button type="button" class="lang-btn" id="langBtn">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+      <span data-i18n="langToggle"></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ View 1: Offer + number ============ -->
+<div id="view-landing">
+  <section class="hero on-dark">
+    <div class="inner">
+      <h2 class="section-title" data-i18n="topTitle"></h2>
+      <div class="carousel" role="region" aria-roledescription="carousel" id="carousel">
+        <div class="viewport" id="viewport">
+          <div class="track" id="track"></div>
+        </div>
+        <div class="controls">
+          <button type="button" class="round-btn" id="prevBtn">
+            <svg class="flip" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <div class="mid">
+            <div class="dots" id="dots" aria-hidden="true"></div>
+            <button type="button" class="play-btn" id="playBtn">
+              <svg id="iconPause" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              <svg id="iconPlay" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" hidden><path d="M8 5.5v13l11-6.5z"/></svg>
+            </button>
+          </div>
+          <button type="button" class="round-btn" id="nextBtn">
+            <svg class="flip" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <p class="sr-only" aria-live="polite" id="slideStatus"></p>
+      </div>
+      <div class="text">
+        <h1 data-i18n="heroTitle"></h1>
+        <p class="sub" data-i18n="heroSub"></p>
+        <ul class="benefits" id="benefits"></ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="stack overlap">
+      <section class="card" aria-labelledby="buyTitle">
+        <h2 id="buyTitle" class="sr-only" data-i18n="buyTitle"></h2>
+        <div class="price-row">
+          <span class="label" data-i18n="priceLabel"></span>
+          <span class="price" data-i18n="price"></span>
+        </div>
+        <p class="note" data-i18n="priceNote"></p>
+        <hr>
+        <div class="field">
+          <label for="msisdn" data-i18n="phoneLabel"></label>
+          <div class="phone" id="phoneBox" dir="ltr">
+            <span class="cc">+249</span>
+            <input id="msisdn" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="0123 456 789" aria-describedby="phoneHelp phoneError">
+          </div>
+          <p class="help" id="phoneHelp" data-i18n="phoneHelp"></p>
+          <p class="error" id="phoneError" role="alert" hidden></p>
+        </div>
+        <button type="button" class="btn" id="sendBtn" data-i18n="cta1"></button>
+      </section>
+
+      <section class="how">
+        <h2 data-i18n="howTitle"></h2>
+        <ol class="steps" id="howSteps"></ol>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- ============ View 2: OTP ============ -->
+<div id="view-otp" class="wrap" hidden>
+  <div class="stack plain">
+    <section class="card">
+      <button type="button" class="link-btn" id="changeNumberBtn" data-i18n="changeNumber"></button>
+      <h1 tabindex="-1" data-i18n="otpTitle"></h1>
+      <p class="lead"><span data-i18n="otpSub"></span> <bdi dir="ltr" class="js-number"></bdi></p>
+      <div class="field">
+        <label for="otp" data-i18n="otpLabel"></label>
+        <input id="otp" class="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" dir="ltr" aria-describedby="otpError">
+        <p class="error" id="otpError" role="alert" hidden></p>
+      </div>
+      <div class="summary" data-i18n="chargeSummary"></div>
+      <button type="button" class="btn" id="confirmBtn" data-i18n="cta2"></button>
+      <button type="button" class="link-btn center" id="resendBtn" data-i18n="resend" hidden></button>
+      <p class="help" id="resendTimer" style="text-align:center"></p>
+    </section>
+  </div>
+</div>
+
+<!-- ============ View 3: Success ============ -->
+<div id="view-success" class="wrap" hidden>
+  <div class="stack plain">
+    <section class="card">
+      <div class="badge ok" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      </div>
+      <h1 tabindex="-1" data-i18n="successTitle"></h1>
+      <p class="lead"><span data-i18n="successSub"></span> <bdi dir="ltr" class="js-number"></bdi></p>
+      <div class="field">
+        <span style="font-size:15px;font-weight:600" data-i18n="linkLabel"></span>
+        <div class="linkbox" dir="ltr">
+          <span id="linkText"></span>
+          <button type="button" class="copy-btn" id="copyBtn">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+            <span id="copyLabel" data-i18n="copy"></span>
+          </button>
+        </div>
+      </div>
+      <a class="btn" id="openLink" href="#" rel="noopener" data-i18n="ctaOpen"></a>
+      <div class="next">
+        <h2 data-i18n="nextTitle"></h2>
+        <ol class="steps" id="nextSteps"></ol>
+      </div>
+      <p class="note" data-i18n="validity"></p>
+      <button type="button" class="link-btn js-restart" data-i18n="buyAnother"></button>
+    </section>
+  </div>
+</div>
+
+<!-- ============ View 4: Not enough balance ============ -->
+<div id="view-error" class="wrap" hidden>
+  <div class="stack plain">
+    <section class="card">
+      <div class="badge bad" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v6"/><path d="M12 17h.01"/></svg>
+      </div>
+      <h1 tabindex="-1" data-i18n="errTitle"></h1>
+      <p class="lead" data-i18n="errSub"></p>
+      <div class="summary" data-i18n="errHelp"></div>
+      <button type="button" class="btn js-restart" data-i18n="ctaRetry"></button>
+    </section>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p data-i18n="help"></p>
+    <nav data-i18n-label="footerNav">
+      <a href="#terms" data-i18n="termsShort"></a>
+      <a href="#privacy" data-i18n="privacy"></a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     CONFIG: the only block IT normally needs to change
+     ========================================================= */
+  var CONFIG = {
+    priceSdg: 28750,              // VAT inclusive, from the pricing formula
+    otpLength: 6,
+    resendSeconds: 30,
+    slideMs: 4500,
+    mockMode: true,               // set to false once the backend endpoints below are live
+    endpoints: {
+      requestOtp: '/api/watchit/otp/request',   // POST { msisdn } -> { ok: true }
+      confirm: '/api/watchit/otp/confirm'       // POST { msisdn, otp } -> { status, activationLink? }
+    }
+  };
+
+  var POSTERS = [
+    { src: 'assets/slide-1.jpg', ar: 'مستر إكس', en: 'Mr. Ex' },
+    { src: 'assets/slide-2.jpg', ar: 'عين سحرية', en: 'Ein Sehreya' },
+    { src: 'assets/slide-3.jpg', ar: 'عايشة الدور', en: 'Aysha El Dor' },
+    { src: 'assets/slide-4.jpg', ar: 'اتنين غيرنا', en: 'Etneen Gherna' },
+    { src: 'assets/slide-5.jpg', ar: 'الهنا اللي أنا فيه', en: 'El Hana Elly Ana Feeh' },
+    { src: 'assets/slide-6.jpg', ar: 'الهدف', en: 'High Value Target' },
+    { src: 'assets/slide-7.jpg', ar: 'كان يا ما كان', en: 'Kan Ya Ma Kan' },
+    { src: 'assets/slide-8.jpg', ar: 'ريستارت', en: 'Restart' }
+  ];
+
+  var PRICE = CONFIG.priceSdg.toLocaleString('en-US');
+
+  var STR = {
+    en: {
+      title: 'WATCH IT with Sudani',
+      altSudani: 'Sudani',
+      langToggle: 'عربي',
+      langAria: 'Switch to Arabic',
+      topTitle: 'Top on WATCH IT',
+      prevAria: 'Previous title',
+      nextAria: 'Next title',
+      pauseAria: 'Pause slideshow',
+      playAria: 'Play slideshow',
+      slideWord: 'Title',
+      ofWord: 'of',
+      heroTitle: 'Egyptian drama and film, now with Sudani',
+      heroSub: 'Get your WATCH IT voucher in under a minute.',
+      benefits: ['WATCH IT originals and exclusive titles', 'Full access for 1 month', 'Pay from your balance, no bank card needed'],
+      buyTitle: 'Buy your voucher',
+      priceLabel: 'Voucher price',
+      price: PRICE + ' SDG',
+      priceNote: 'VAT inclusive. Charged to your balance.',
+      phoneLabel: 'Phone number',
+      phoneHelp: 'We’ll text a 6-digit confirmation code to this number.',
+      phoneError: 'Enter a valid Sudani number, for example 0123 456 789.',
+      cta1: 'Send me the code',
+      sending: 'Sending…',
+      howTitle: 'How it works',
+      steps: ['Enter your phone number', 'Confirm with the code we text you', 'Open your WATCH IT link from the SMS', 'Sign up or log in, then start watching'],
+      changeNumber: 'Change number',
+      otpTitle: 'Enter your code',
+      otpSub: 'We sent a 6-digit code to',
+      otpLabel: 'Confirmation code',
+      otpWrong: 'That code isn’t right. Check the SMS and try again.',
+      otpIncomplete: 'Enter all 6 digits.',
+      chargeSummary: PRICE + ' SDG (VAT inclusive) will be deducted from your balance.',
+      cta2: 'Confirm and pay',
+      confirming: 'Confirming…',
+      resend: 'Resend code',
+      resendIn: 'You can resend the code in',
+      successTitle: 'Your voucher is ready',
+      successSub: 'Open your link to create a WATCH IT account or log in. We also sent it by SMS to',
+      linkLabel: 'Your activation link',
+      copy: 'Copy',
+      copied: 'Copied',
+      ctaOpen: 'Create account or log in',
+      nextTitle: 'What happens next',
+      nextSteps: ['Open your activation link', 'Sign up or log in with your email and password', 'Enjoy WATCH IT originals and exclusive titles'],
+      validity: 'Use your link within [VALIDITY]. Keep it private: anyone with the link can use it.',
+      buyAnother: 'Buy another voucher',
+      errTitle: 'Not enough balance',
+      errSub: 'Your balance is lower than ' + PRICE + ' SDG. You haven’t been charged.',
+      errHelp: 'Top up using [TOP-UP OPTIONS], then try again.',
+      ctaRetry: 'Try again',
+      generic: 'Something went wrong. Please try again in a moment.',
+      help: 'Need help? Call Sudani customer care on 120.',
+      footerNav: 'Legal',
+      termsShort: 'Terms and conditions',
+      privacy: 'Privacy policy'
+    },
+    ar: {
+      title: 'WATCH IT مع سوداني',
+      altSudani: 'سوداني',
+      langToggle: 'English',
+      langAria: 'التبديل إلى الإنجليزية',
+      topTitle: 'الأعلى مشاهدة على WATCH IT',
+      prevAria: 'العرض السابق',
+      nextAria: 'العرض التالي',
+      pauseAria: 'إيقاف العرض التلقائي',
+      playAria: 'تشغيل العرض التلقائي',
+      slideWord: 'العرض',
+      ofWord: 'من',
+      heroTitle: 'أجمل الدراما والأفلام المصرية، الآن مع سوداني',
+      heroSub: 'احصل على قسيمة WATCH IT في أقل من دقيقة.',
+      benefits: ['أعمال WATCH IT الأصلية والعروض الحصرية', 'وصول كامل لمدة شهر', 'ادفع من رصيدك، بدون بطاقة بنكية'],
+      buyTitle: 'اشترِ قسيمتك',
+      priceLabel: 'سعر القسيمة',
+      price: PRICE + ' جنيه',
+      priceNote: 'شامل ضريبة القيمة المضافة. يُخصم المبلغ من رصيدك.',
+      phoneLabel: 'رقم التلفون',
+      phoneHelp: 'سنرسل رمز تأكيد من 6 أرقام إلى هذا الرقم.',
+      phoneError: 'أدخل رقم سوداني صحيح، مثل ⁦0123 456 789⁩.',
+      cta1: 'أرسل لي الرمز',
+      sending: 'جارٍ الإرسال…',
+      howTitle: 'كيف تعمل',
+      steps: ['أدخل رقم التلفون', 'أكّد بالرمز الذي نرسله لك', 'افتح رابط WATCH IT من الرسالة النصية', 'سجّل أو سجّل الدخول، وابدأ المشاهدة'],
+      changeNumber: 'تغيير الرقم',
+      otpTitle: 'أدخل الرمز',
+      otpSub: 'أرسلنا رمزًا من 6 أرقام إلى',
+      otpLabel: 'رمز التأكيد',
+      otpWrong: 'الرمز غير صحيح. تحقّق من الرسالة وحاول مرة أخرى.',
+      otpIncomplete: 'أدخل الأرقام الستة كاملة.',
+      chargeSummary: 'سيتم خصم ' + PRICE + ' جنيه (شامل ضريبة القيمة المضافة) من رصيدك.',
+      cta2: 'تأكيد والدفع',
+      confirming: 'جارٍ التأكيد…',
+      resend: 'إعادة إرسال الرمز',
+      resendIn: 'يمكنك إعادة إرسال الرمز بعد',
+      successTitle: 'قسيمتك جاهزة',
+      successSub: 'افتح الرابط لإنشاء حساب في WATCH IT أو تسجيل الدخول. أرسلناه لك أيضًا برسالة نصية إلى',
+      linkLabel: 'رابط التفعيل الخاص بك',
+      copy: 'نسخ',
+      copied: 'تم النسخ',
+      ctaOpen: 'إنشاء حساب أو تسجيل الدخول',
+      nextTitle: 'ماذا بعد؟',
+      nextSteps: ['افتح رابط التفعيل', 'أنشئ حسابًا أو سجّل الدخول ببريدك الإلكتروني وكلمة المرور', 'استمتع بأعمال WATCH IT الأصلية والعروض الحصرية'],
+      validity: 'استخدم الرابط خلال [مدة الصلاحية]. احتفظ به لنفسك، فأي شخص لديه الرابط يمكنه استخدامه.',
+      buyAnother: 'شراء قسيمة أخرى',
+      errTitle: 'رصيدك غير كافٍ',
+      errSub: 'رصيدك أقل من ' + PRICE + ' جنيه. لم يتم خصم أي مبلغ.',
+      errHelp: 'اشحن رصيدك عبر [طرق الشحن]، ثم حاول مرة أخرى.',
+      ctaRetry: 'حاول مرة أخرى',
+      generic: 'حدث خطأ ما. يرجى المحاولة مرة أخرى بعد قليل.',
+      help: 'تحتاج مساعدة؟ اتصل بخدمة عملاء سوداني على 120.',
+      footerNav: 'روابط قانونية',
+      termsShort: 'الشروط والأحكام',
+      privacy: 'سياسة الخصوصية'
+    }
+  };
+
+  /* ---------- helpers ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var state = { lang: 'ar', msisdn: null, link: null, slide: 0, playing: true };
+  var t = function (key) { return STR[state.lang][key]; };
+
+  function store(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
+  function load(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+
+  // Accepts 0123456789, 123456789, +249123456789, 249 12 345 6789 -> "249123456789" or null
+  function normalizeMsisdn(value) {
+    var d = String(value || '').replace(/\D/g, '');
+    if (d.indexOf('249') === 0) d = d.slice(3);
+    if (d.indexOf('0') === 0) d = d.slice(1);
+    return (d.length === 9 && d.charAt(0) === '1') ? '249' + d : null;
+  }
+  function prettyMsisdn(m) {
+    var d = m.slice(3);
+    return '+249 ' + d.slice(0, 2) + ' ' + d.slice(2, 5) + ' ' + d.slice(5);
+  }
+
+  /* ---------- API (backend proxies Huawei SDP; never call SDP from the browser) ---------- */
+  function post(url, body) {
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify(body)
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+  var api = {
+    requestOtp: function (msisdn) {
+      if (CONFIG.mockMode) return new Promise(function (res) { setTimeout(function () { res({ ok: true }); }, 600); });
+      return post(CONFIG.endpoints.requestOtp, { msisdn: msisdn, lang: state.lang });
+    },
+    // Expected response: { status: 'success' | 'wrong_otp' | 'expired_otp' | 'insufficient_balance' | 'error', activationLink?: string }
+    confirm: function (msisdn, otp) {
+      if (CONFIG.mockMode) {
+        return new Promise(function (res) {
+          setTimeout(function () {
+            if (otp === '000000') return res({ status: 'wrong_otp' });
+            if (otp === '111111') return res({ status: 'insufficient_balance' });
+            res({ status: 'success', activationLink: 'https://campaign.watchit.com/#/promocode?code=DEMO' });
+          }, 800);
+        });
+      }
+      return post(CONFIG.endpoints.confirm, { msisdn: msisdn, otp: otp });
+    }
+  };
+
+  /* ---------- language ---------- */
+  function fillList(el, items, numbered) {
+    el.innerHTML = '';
+    items.forEach(function (text, i) {
+      var li = document.createElement('li');
+      if (numbered) {
+        var n = document.createElement('span');
+        n.className = 'n'; n.textContent = String(i + 1);
+        li.appendChild(n);
+      } else {
+        li.insertAdjacentHTML('beforeend', '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DCA523" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>');
+      }
+      var s = document.createElement('span');
+      s.textContent = text;
+      li.appendChild(s);
+      el.appendChild(li);
+    });
+  }
+
+  function applyLang(lang) {
+    state.lang = lang;
+    store('wi_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.title = t('title');
+    document.querySelectorAll('[data-i18n]').forEach(function (el) { el.textContent = t(el.getAttribute('data-i18n')); });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) { el.alt = t(el.getAttribute('data-i18n-alt')); });
+    document.querySelectorAll('[data-i18n-label]').forEach(function (el) { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-label'))); });
+    $('langBtn').setAttribute('aria-label', t('langAria'));
+    $('carousel').setAttribute('aria-label', t('topTitle'));
+    $('prevBtn').setAttribute('aria-label', t('prevAria'));
+    $('nextBtn').setAttribute('aria-label', t('nextAria'));
+    fillList($('benefits'), t('benefits'), false);
+    fillList($('howSteps'), t('steps'), true);
+    fillList($('nextSteps'), t('nextSteps'), true);
+    if (state.msisdn) document.querySelectorAll('.js-number').forEach(function (el) { el.textContent = prettyMsisdn(state.msisdn); });
+    if (!$('phoneError').hidden) $('phoneError').textContent = t('phoneError');
+    buildSlides();
+    updatePlayBtn();
+    updateTimerText();
+  }
+
+  /* ---------- views ---------- */
+  var VIEWS = ['landing', 'otp', 'success', 'error'];
+  function show(name) {
+    VIEWS.forEach(function (v) { $('view-' + v).hidden = v !== name; });
+    window.scrollTo(0, 0);
+    var h = $('view-' + name).querySelector('h1[tabindex]');
+    if (h) h.focus({ preventScroll: true });
+    if (name === 'landing') startAuto(); else stopAuto();
+  }
+
+  /* ---------- carousel ---------- */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var autoTimer = null;
+
+  function buildSlides() {
+    var track = $('track'), dots = $('dots');
+    track.innerHTML = ''; dots.innerHTML = '';
+    POSTERS.forEach(function (p, i) {
+      var slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', t('slideWord') + ' ' + (i + 1) + ' ' + t('ofWord') + ' ' + POSTERS.length);
+      var img = document.createElement('img');
+      img.src = p.src;
+      img.alt = state.lang === 'ar' ? p.ar : p.en;
+      img.draggable = false;
+      if (i > 0) img.loading = 'lazy';
+      slide.appendChild(img);
+      track.appendChild(slide);
+      dots.appendChild(document.createElement('span'));
+    });
+    renderSlide();
+  }
+
+  function renderSlide() {
+    var i = state.slide, rtl = state.lang === 'ar';
+    $('track').style.transform = 'translateX(' + (rtl ? '' : '-') + (i * 100) + '%)';
+    Array.prototype.forEach.call($('track').children, function (s, k) { s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+    Array.prototype.forEach.call($('dots').children, function (d, k) { d.className = k === i ? 'on' : ''; });
+  }
+
+  function goTo(i, announce) {
+    var n = POSTERS.length;
+    state.slide = (i + n) % n;
+    renderSlide();
+    if (announce) {
+      var p = POSTERS[state.slide];
+      $('slideStatus').textContent = (state.lang === 'ar' ? p.ar : p.en) + ', ' + (state.slide + 1) + ' ' + t('ofWord') + ' ' + n;
+    }
+  }
+
+  function startAuto() {
+    stopAuto();
+    if (!state.playing || reduceMotion || $('view-landing').hidden) return;
+    autoTimer = setInterval(function () { goTo(state.slide + 1, false); }, CONFIG.slideMs);
+  }
+  function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+  function manual(i) { goTo(i, true); startAuto(); }
+
+  function updatePlayBtn() {
+    $('iconPause').hidden = !state.playing;
+    $('iconPlay').hidden = state.playing;
+    $('playBtn').setAttribute('aria-label', state.playing ? t('pauseAria') : t('playAria'));
+  }
+
+  $('prevBtn').addEventListener('click', function () { manual(state.slide - 1); });
+  $('nextBtn').addEventListener('click', function () { manual(state.slide + 1); });
+  $('playBtn').addEventListener('click', function () {
+    state.playing = !state.playing;
+    updatePlayBtn();
+    if (state.playing) startAuto(); else stopAuto();
+  });
+  (function swipe() {
+    var x0 = null;
+    var vp = $('viewport');
+    vp.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    vp.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) < 40) return;
+      var forward = state.lang === 'ar' ? dx > 0 : dx < 0;
+      manual(state.slide + (forward ? 1 : -1));
+    });
+  })();
+  $('carousel').addEventListener('focusin', stopAuto);
+  $('carousel').addEventListener('focusout', startAuto);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) stopAuto(); else startAuto(); });
+
+  /* ---------- step 1: number ---------- */
+  function setPhoneError(on) {
+    $('phoneError').hidden = !on;
+    $('phoneError').textContent = on ? t('phoneError') : '';
+    $('phoneBox').classList.toggle('invalid', on);
+    $('msisdn').setAttribute('aria-invalid', on ? 'true' : 'false');
+  }
+  $('msisdn').addEventListener('input', function () { setPhoneError(false); });
+  $('msisdn').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('sendBtn').click(); });
+
+  function busy(btn, labelKey, on) {
+    btn.disabled = on;
+    btn.textContent = on ? t(labelKey) : t(btn.getAttribute('data-i18n'));
+  }
+
+  $('sendBtn').addEventListener('click', function () {
+    var m = normalizeMsisdn($('msisdn').value);
+    if (!m) { setPhoneError(true); $('msisdn').focus(); return; }
+    busy($('sendBtn'), 'sending', true);
+    api.requestOtp(m).then(function () {
+      state.msisdn = m;
+      document.querySelectorAll('.js-number').forEach(function (el) { el.textContent = prettyMsisdn(m); });
+      $('otp').value = '';
+      setOtpError(null);
+      show('otp');
+      startResendTimer();
+      $('otp').focus();
+    }).catch(function () {
+      $('phoneError').hidden = false;
+      $('phoneError').textContent = t('generic');
+    }).then(function () { busy($('sendBtn'), 'sending', false); });
+  });
+
+  /* ---------- step 2: OTP ---------- */
+  var resendLeft = 0, resendTimer = null;
+  function updateTimerText() {
+    $('resendBtn').hidden = resendLeft > 0;
+    $('resendTimer').hidden = resendLeft <= 0;
+    $('resendTimer').textContent = t('resendIn') + ' 0:' + String(resendLeft).padStart(2, '0');
+  }
+  function startResendTimer() {
+    clearInterval(resendTimer);
+    resendLeft = CONFIG.resendSeconds;
+    updateTimerText();
+    resendTimer = setInterval(function () {
+      resendLeft -= 1;
+      if (resendLeft <= 0) { resendLeft = 0; clearInterval(resendTimer); }
+      updateTimerText();
+    }, 1000);
+  }
+  function setOtpError(key) {
+    $('otpError').hidden = !key;
+    $('otpError').textContent = key ? t(key) : '';
+    $('otp').classList.toggle('invalid', !!key);
+    $('otp').setAttribute('aria-invalid', key ? 'true' : 'false');
+  }
+  $('otp').addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, CONFIG.otpLength);
+    setOtpError(null);
+  });
+  $('otp').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('confirmBtn').click(); });
+  $('resendBtn').addEventListener('click', function () {
+    api.requestOtp(state.msisdn).then(startResendTimer).catch(function () { setOtpError('generic'); });
+  });
+  $('changeNumberBtn').addEventListener('click', function () { clearInterval(resendTimer); show('landing'); $('msisdn').focus(); });
+
+  $('confirmBtn').addEventListener('click', function () {
+    var otp = $('otp').value;
+    if (otp.length < CONFIG.otpLength) { setOtpError('otpIncomplete'); $('otp').focus(); return; }
+    busy($('confirmBtn'), 'confirming', true);
+    api.confirm(state.msisdn, otp).then(function (res) {
+      if (res.status === 'success') {
+        clearInterval(resendTimer);
+        state.link = res.activationLink;
+        $('linkText').textContent = res.activationLink.replace(/^https?:\/\//, '');
+        $('openLink').href = res.activationLink;
+        $('copyLabel').textContent = t('copy');
+        show('success');
+      } else if (res.status === 'insufficient_balance') {
+        clearInterval(resendTimer);
+        show('error');
+      } else if (res.status === 'wrong_otp' || res.status === 'expired_otp') {
+        setOtpError('otpWrong');
+        $('otp').focus();
+      } else {
+        setOtpError('generic');
+      }
+    }).catch(function () { setOtpError('generic'); })
+      .then(function () { busy($('confirmBtn'), 'confirming', false); });
+  });
+
+  /* ---------- step 3: success ---------- */
+  $('copyBtn').addEventListener('click', function () {
+    var done = function () { $('copyLabel').textContent = t('copied'); };
+    if (navigator.clipboard && state.link) navigator.clipboard.writeText(state.link).then(done, done); else done();
+  });
+
+  document.querySelectorAll('.js-restart').forEach(function (b) {
+    b.addEventListener('click', function () { show('landing'); });
+  });
+
+  /* ---------- init ---------- */
+  $('langBtn').addEventListener('click', function () { applyLang(state.lang === 'ar' ? 'en' : 'ar'); });
+  var q = new URLSearchParams(location.search).get('lang');
+  var initial = (q === 'en' || q === 'ar') ? q : (load('wi_lang') || 'ar');
+  if (reduceMotion) state.playing = false;
+  applyLang(initial);
+  show('landing');
+})();
+</script>
+</body>
+</html>
