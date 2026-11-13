@@ -65,7 +65,6 @@ a:hover { color: var(--blue-dark); }
 
 /* Header: logos top left in both languages, floats over the hero */
 .topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 5; background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0)); }
-body:not(.is-landing) .topbar { position: static; background: var(--blue); }
 .topbar .wrap { max-width: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; direction: ltr; }
 .brands { display: flex; align-items: center; gap: 14px; }
 .brands img { display: block; width: auto; }
@@ -231,6 +230,35 @@ footer a { color: var(--muted) !important; padding: 12px 0; display: inline-bloc
     linear-gradient(to bottom, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.9) 26%, rgba(0,0,0,0.45) 52%, rgba(0,0,0,0.55) 78%, #000000 100%); }
 }
 
+/* Inner screens match the dark landing */
+body { background: #000000; }
+footer { color: #A0A0A0; padding-top: 8px; }
+footer a { color: #A0A0A0 !important; }
+.btn { background: var(--yellow); color: #000000; font-weight: 700; }
+.btn:hover { background: #F0B92E; color: #000000; }
+a.btn, a.btn:hover { color: #000000; }
+.badge.ok { background: var(--yellow); }
+.badge.ok svg { stroke: #000000; }
+
+.js-number { white-space: nowrap; }
+
+/* Header back button */
+.head-start { display: flex; align-items: center; gap: 12px; }
+.head-back { flex: none; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.85); background: rgba(0,0,0,0.35); color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
+.head-back:hover { background: rgba(255,255,255,0.12); }
+.head-back[hidden] { display: none; }
+.inline-link { border: 0; background: none; padding: 4px 2px; min-height: 44px; font: inherit; font-size: 15px; font-weight: 700; color: #8A6300; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* Inner screens: poster wall behind, highlighted card */
+.page-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: #000000; }
+.page-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 55% at 50% 45%, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.55) 100%); }
+body.is-landing .page-bg { display: none; }
+body:not(.is-landing) .topbar { position: relative; z-index: 2; background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0)); }
+#view-otp, #view-success, #view-error, footer { position: relative; z-index: 1; }
+.stack.plain .card { border: 0; box-shadow: 0 0 0 1.5px rgba(220,165,35,0.75), 0 0 70px rgba(220,165,35,0.18), 0 30px 80px rgba(0,0,0,0.7); }
+.stack.plain h1 { font-size: 28px; }
+
+
 /* Layout switch: ?layout=mid puts the subscription card in the middle of the page */
 .btn-hero, .buy-mid { display: none; }
 body.layout-mid .btn-hero { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 32px; font-size: 18px; margin-top: 10px; }
@@ -264,7 +292,7 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
   .buy-banner .price-row .price { font-size: 26px; }
   .why { padding: 48px 48px 0; }
   .why h2 { font-size: 26px; margin-bottom: 18px; }
-  .why-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .why-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .why-item { padding: 22px; }
   .why-item h3 { font-size: 17px; }
   .why-item p { font-size: 14px; }
@@ -312,13 +340,17 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
 </style>
 </head>
 <body>
+<div class="page-bg" aria-hidden="true"><div class="wall" id="wall2"></div></div>
 
 <header class="topbar on-dark">
   <div class="wrap">
+    <div class="head-start">
+    <button type="button" class="head-back" id="backBtn" hidden><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
     <div class="brands">
       <img class="sudani" src="logo-sudani.png" alt="Sudani" data-i18n-alt="altSudani">
       <span class="divider" aria-hidden="true"></span>
       <img class="watchit" src="logo-watchit.svg" alt="WATCH IT">
+    </div>
     </div>
     <button type="button" class="lang-btn" id="langBtn">
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
@@ -412,9 +444,8 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
 <div id="view-otp" class="wrap" hidden>
   <div class="stack plain">
     <section class="card">
-      <button type="button" class="link-btn" id="changeNumberBtn" data-i18n="changeNumber"></button>
       <h1 tabindex="-1" data-i18n="otpTitle"></h1>
-      <p class="lead"><span data-i18n="otpSub"></span> <bdi dir="ltr" class="js-number"></bdi></p>
+      <p class="lead"><span data-i18n="otpSub"></span> <bdi dir="ltr" class="js-number"></bdi> <button type="button" class="inline-link" id="changeNumberBtn" data-i18n="changeNumber"></button></p>
       <div class="field">
         <label for="otp" data-i18n="otpLabel"></label>
         <input id="otp" class="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" dir="ltr" aria-describedby="otpError">
@@ -452,7 +483,6 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
         <h2 data-i18n="nextTitle"></h2>
         <ol class="steps" id="nextSteps"></ol>
       </div>
-      <p class="note" data-i18n="validity"></p>
       <button type="button" class="link-btn js-restart" data-i18n="buyAnother"></button>
     </section>
   </div>
@@ -523,6 +553,7 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
     en: {
       title: 'WATCH IT with Sudani',
       altSudani: 'Sudani',
+      backAria: 'Back',
       langToggle: 'عربي',
       langAria: 'Switch to Arabic',
       topTitle: 'Top on WATCH IT',
@@ -534,11 +565,9 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
       whyTitle: 'Why WATCH IT?',
       why: [
         ['WATCH IT Originals', 'Exclusive series and shows you won’t find anywhere else.'],
-        ['A huge Egyptian library', 'Egyptian and Arabic series, films and entertainment shows, new and classic.'],
-        ['Up to 3 screens at once', 'Watch on 3 devices at the same time.'],
+        ['A huge Egyptian library', 'Egyptian and Arabic series, films and entertainment shows.'],
         ['Profiles for the family', 'A profile for everyone at home, plus kids profiles.'],
-        ['Phone, tablet and TV', 'Watch on your phone, tablet or TV.'],
-        ['Pay from your balance', 'No bank card needed. Charged to your Sudani line.']
+        ['Phone, tablet and TV', 'Watch on your phone, tablet or TV.']
       ],
       buyMidTitle: 'Start watching today',
       featAlt: 'Bebo poster',
@@ -552,7 +581,7 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
       ofWord: 'of',
       heroTitle: 'Egyptian drama and film, now with Sudani',
       heroSub: 'All of Egypt’s hottest series in one place. Subscribe now and start watching tonight.',
-      benefits: ['Exclusive WATCH IT Originals', 'Up to 3 screens at once', 'Pay from your Sudani balance'],
+      benefits: ['Exclusive WATCH IT Originals', 'Egyptian series, films and shows', 'Pay from your Sudani balance'],
       buyTitle: 'Subscribe to WATCH IT',
       priceLabel: 'Price',
       price: PRICE + ' SDG',
@@ -583,11 +612,10 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
       ctaOpen: 'Create account or log in',
       nextTitle: 'What happens next',
       nextSteps: ['Open your activation link', 'Sign up or log in with your email and password', 'Enjoy WATCH IT originals and exclusive titles'],
-      validity: 'Use your link within [VALIDITY]. Keep it private: anyone with the link can use it.',
       buyAnother: 'Subscribe another number',
       errTitle: 'Not enough balance',
       errSub: 'Your balance is lower than ' + PRICE + ' SDG. You haven’t been charged.',
-      errHelp: 'Top up using [TOP-UP OPTIONS], then try again.',
+      errHelp: 'Top up from the My Sudani app, mBOK or any Sudani sales point, then try again.',
       ctaRetry: 'Try again',
       generic: 'Something went wrong. Please try again in a moment.',
       help: 'Need help? Call Sudani customer care on 120.',
@@ -598,6 +626,7 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
     ar: {
       title: 'WATCH IT مع سوداني',
       altSudani: 'سوداني',
+      backAria: 'رجوع',
       langToggle: 'English',
       langAria: 'التبديل إلى الإنجليزية',
       topTitle: 'الأعلى مشاهدة على WATCH IT',
@@ -609,11 +638,9 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
       whyTitle: 'لماذا WATCH IT؟',
       why: [
         ['أعمال WATCH IT الأصلية', 'مسلسلات وبرامج حصرية لن تجدها في أي مكان آخر.'],
-        ['مكتبة مصرية ضخمة', 'مسلسلات وأفلام وبرامج مصرية وعربية، الجديد والكلاسيكي.'],
-        ['حتى 3 شاشات معًا', 'شاهد على 3 أجهزة في نفس الوقت.'],
+        ['مكتبة مصرية ضخمة', 'مسلسلات وأفلام وبرامج ترفيهية مصرية وعربية.'],
         ['ملفات للعائلة', 'ملف لكل فرد في البيت، مع ملفات خاصة بالأطفال.'],
-        ['موبايل وتابلت وتلفزيون', 'شاهد على الموبايل أو التابلت أو التلفزيون.'],
-        ['ادفع من رصيدك', 'بدون بطاقة بنكية. يُخصم من خط سوداني.']
+        ['موبايل وتابلت وتلفزيون', 'شاهد على الموبايل أو التابلت أو التلفزيون.']
       ],
       buyMidTitle: 'ابدأ المشاهدة اليوم',
       featAlt: 'ملصق مسلسل بيبو',
@@ -627,7 +654,7 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
       ofWord: 'من',
       heroTitle: 'أجمل الدراما والأفلام المصرية، الآن مع سوداني',
       heroSub: 'كل الترند المصري في مكان واحد. اشترك الآن وابدأ المشاهدة الليلة.',
-      benefits: ['أعمال WATCH IT الأصلية الحصرية', 'حتى 3 شاشات في نفس الوقت', 'ادفع من رصيد سوداني'],
+      benefits: ['أعمال WATCH IT الأصلية الحصرية', 'مسلسلات وأفلام وبرامج مصرية', 'ادفع من رصيد سوداني'],
       buyTitle: 'اشترك في WATCH IT',
       priceLabel: 'السعر',
       price: PRICE + ' جنيه',
@@ -658,11 +685,10 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
       ctaOpen: 'إنشاء حساب أو تسجيل الدخول',
       nextTitle: 'ماذا بعد؟',
       nextSteps: ['افتح رابط التفعيل', 'أنشئ حسابًا أو سجّل الدخول ببريدك الإلكتروني وكلمة المرور', 'استمتع بأعمال WATCH IT الأصلية والعروض الحصرية'],
-      validity: 'استخدم الرابط خلال [مدة الصلاحية]. احتفظ به لنفسك، فأي شخص لديه الرابط يمكنه استخدامه.',
       buyAnother: 'اشترك لرقم آخر',
       errTitle: 'رصيدك غير كافٍ',
       errSub: 'رصيدك أقل من ' + PRICE + ' جنيه. لم يتم خصم أي مبلغ.',
-      errHelp: 'اشحن رصيدك عبر [طرق الشحن]، ثم حاول مرة أخرى.',
+      errHelp: 'اشحن رصيدك من تطبيق My Sudani أو تطبيق بنكك (mBOK) أو أي نقطة بيع سوداني، ثم حاول مرة أخرى.',
       ctaRetry: 'حاول مرة أخرى',
       generic: 'حدث خطأ ما. يرجى المحاولة مرة أخرى بعد قليل.',
       help: 'تحتاج مساعدة؟ اتصل بخدمة عملاء سوداني على 120.',
@@ -753,6 +779,7 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
     document.querySelectorAll('[data-i18n-alt]').forEach(function (el) { el.alt = t(el.getAttribute('data-i18n-alt')); });
     document.querySelectorAll('[data-i18n-label]').forEach(function (el) { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-label'))); });
     $('langBtn').setAttribute('aria-label', t('langAria'));
+    $('backBtn').setAttribute('aria-label', t('backAria'));
     $('railPrev').setAttribute('aria-label', t('railPrev'));
     $('railNext').setAttribute('aria-label', t('railNext'));
     fillList($('benefits'), t('benefits'), false);
@@ -768,10 +795,8 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
   var WHY_ICONS = [
       '<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>',
       '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M10 9.5v4l3.5-2z"/>',
-      '<rect x="2" y="5" width="11" height="8" rx="1.5"/><rect x="15" y="7" width="7" height="12" rx="1.5"/><path d="M5 17h5"/>',
       '<circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M15.5 14.2c2.4-.3 4.5 1.2 5 4.3"/>',
-      '<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
-      '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/>'
+      '<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/>'
     ];
   function buildWhy() {
     var g = $('whyGrid');
@@ -787,11 +812,32 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
     });
   }
 
+  window.addEventListener('popstate', function (e) {
+    var v = e.state && e.state.view;
+    if (v === 'otp' && !state.msisdn) v = null;
+    if (typeof resendTimer !== 'undefined') clearInterval(resendTimer);
+    show(v && VIEWS.indexOf(v) > -1 ? v : 'landing', true);
+  });
+
   /* ---------- views ---------- */
   var VIEWS = ['landing', 'otp', 'success', 'error'];
-  function show(name) {
+  var currentView = 'landing';
+  var hadPrevPage = history.length > 1;
+  $('backBtn').addEventListener('click', function () {
+    if (currentView === 'landing') { history.back(); return; }
+    if (typeof resendTimer !== 'undefined') clearInterval(resendTimer);
+    if (history.state && history.state.view) history.back(); else show('landing');
+  });
+  function show(name, fromHistory) {
+    if (!fromHistory) {
+      if (name === 'otp') history.pushState({ view: 'otp' }, '');
+      else if (name === 'success' || name === 'error') history.replaceState({ view: name }, '');
+      else if (history.state && history.state.view) history.back();
+    }
     VIEWS.forEach(function (v) { $('view-' + v).hidden = v !== name; });
     document.body.classList.toggle('is-landing', name === 'landing');
+    currentView = name;
+    $('backBtn').hidden = name === 'landing' && !hadPrevPage;
     window.scrollTo(0, 0);
     var h = $('view-' + name).querySelector('h1[tabindex]');
     if (h) h.focus({ preventScroll: true });
@@ -808,9 +854,11 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function posterName(p) { return state.lang === 'ar' ? p.ar : p.en; }
   function buildPosters() {
-    var wall = $('wall'), rail = $('rail');
+    var rail = $('rail');
+    ['wall', 'wall2'].forEach(function (wid) {
+    var wall = $(wid);
     if (!wall.childElementCount) {
-      for (var r = 0; r < 5; r++) {
+      for (var r = 0; r < 8; r++) {
         var row = document.createElement('div');
         row.className = 'wall-row';
         var order = POSTERS.slice(r * 5 % POSTERS.length).concat(POSTERS.slice(0, r * 5 % POSTERS.length));
@@ -822,6 +870,7 @@ body.layout-mid .buy-mid { display: block; position: relative; margin: 24px 16px
         wall.appendChild(row);
       }
     }
+    });
     rail.innerHTML = '';
     POSTERS.forEach(function (p) {
       var li = document.createElement('li');
